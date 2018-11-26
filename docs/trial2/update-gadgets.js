@@ -59,8 +59,7 @@ var sparql_val = getSPARQL004().trim();
 sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
 var Q = new sgvizler.Query();
 Q.query(sparql_val)
-.endpointURL("https://lod4all.net/api/sparql?token=jist2018-
-data")
+.endpointURL("https://lod4all.net/api/sparql?token=jist2018-data")
 .endpointOutputFormat("json")
 .chartFunction("google.visualization.PieChart")
 .draw("gadget-004");
