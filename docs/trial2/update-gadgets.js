@@ -13,6 +13,7 @@ function updateGadgets(click_uri)
     updateGadget001(click_uri);
     updateGadget002(click_uri);
     updateGadget003(click_uri);
+    updateGadget004(click_uri);
 }
 
 function updateGadget001(click_uri)
@@ -49,6 +50,20 @@ function updateGadget003(click_uri)
     var sparql_val = getSPARQL003().trim();
     sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
     d3sparql.query("https://lod4all.net/api/sparql", sparql_val, render003);
+}
+
+function updateGadget004(click_uri)
+{
+$('#gadget-004').empty();
+var sparql_val = getSPARQL004().trim();
+sparql_val = sparql_val.replace(/<%URI%>/g, '<'+click_uri+'>');
+var Q = new sgvizler.Query();
+Q.query(sparql_val)
+.endpointURL("https://lod4all.net/api/sparql?token=jist2018-
+data")
+.endpointOutputFormat("json")
+.chartFunction("google.visualization.PieChart")
+.draw("gadget-004");
 }
 
 function render003(json) {
